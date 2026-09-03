@@ -19,6 +19,14 @@
     font-style: normal;
 }
 
+:root {
+    --green: hsl(75, 94%, 57%);
+    --white: hsl(0, 0%, 100%);
+    --grey-700: hsl(0, 0%, 20%);
+    --grey-800: hsl(0, 0%, 12%);
+    --grey-900: hsl(0, 0%, 8%);
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -26,24 +34,24 @@
 }
 
 body {
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    background-color: hsl(0, 0%, 8%);
-    color: white;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    background-color: var(--grey-900);
+    color: var(--white);
     font-family: 'Inter', sans-serif;
     font-size: 14px;
 }
 
 .container {
+    width: 400px;
     display: flex;
     flex-direction: column;
-    width: 400px;
-    background-color: hsl(0, 0%, 12%);
     align-items: center;
-    padding: 40px 40px;
+    background-color: var(--grey-800);
+    padding: 40px 50px;
     border-radius: 15px;
 }
 
@@ -59,51 +67,56 @@ img {
     margin-bottom: 15px;
 }
 
-.profile-info p{
-    margin: 0.5em;
+.profile-info p {
+    margin-top: 0.75em;
 }
 
-#name {
+h1 {
     font-size: 1.75em;
     margin-bottom: 0px;
     font-weight: 400;
 }
 
-#location {
-    color: hsl(75, 94%, 57%);
-    margin-bottom: 2em;
+.location {
+    color: var(--green);
+    margin-bottom: 1.5em;
     font-size: 0.95em;
     font-weight: 600;
 }
 
-
 .links {
     margin-top: 15px;
-    width: 100%;
-    
+    width: 100%;  
 }
 
-.links p {
+.links ul {
+    list-style: none;
+    width: 100%;
+}
+
+.links a {
+    display: block;
+    text-decoration: none;
+    background-color: var(--grey-700);
+    color: var(--white);
     font-weight: 600;
     font-size: 1em;
-    margin: 0.5em;
-    width: 100%;
     text-align: center;
+    margin: 1em 0;
     padding: 15px 0;
     border-radius: 10px;
-    background-color: hsl(0, 0%, 20%);
     transition: transform 0.3s ease, background-color 0.2s ease, color 0.2s ease;
 }
 
-.links p:hover{
-    background-color: hsl(75, 94%, 57%);
-    color: hsl(0, 0%, 12%);
+.links a:hover{
+    background-color: var(--green);
+    color: var(--grey-800);
     cursor: pointer;
     transform: scale(1.05);  
     font-weight: 700;
 }
 
-.links p:active {
+.links a:active {
     background-color:hsl(75, 94%, 87%);
     color: hsl(0, 0%, 42%);
     transform: scale(1); 
@@ -113,10 +126,16 @@ footer {
     margin-top: 20px;
 }
 
-footer p, .attribution a, .attribution a:link, .attribution a:visited {
-    margin: 5px;
+.attribution p, .attribution a {
+    margin: 10px 0;
     color: hsl(0, 0%, 20%);
     text-decoration: none;
-    font-size: 1.1em;
+    font-size: 0.90em;
+    text-align: center;
 }
 
+@media (max-width: 375px) {
+    .container {
+        width: 90%;
+    }
+}
